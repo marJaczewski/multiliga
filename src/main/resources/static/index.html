@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiliga</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">Multiliga</a>
+        </div>
+        <div id="allTypes">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#newUser">Dodaj użytkownika</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#admin">Admin</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div id="main">
+    <div ng-view></div>
+
+</div>
+
+
+
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+
+<script src="Controllers/app.js"></script>
+<script src="Controllers/homeController.js"></script>
+<script src="Controllers/newUserController.js"></script>
+<script src="Controllers/adminController.js"></script>
+</html>
