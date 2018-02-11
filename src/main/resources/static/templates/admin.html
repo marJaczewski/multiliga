@@ -1,7 +1,28 @@
 <div class="container">
     <div ng-controller="adminController">
 
-{{9+6}}
+        <select ng-click="loadDyscyplines()" id="typeSelect" class="form-control" ng-model="race.type"
+                ng-change="setCategoryId()" required>
+            <option ng-repeat="x in dyscyplines">{{x.name}}</option>
+        </select>
+
+        <br>
+
+        <h5>Ilosc miejsc</h5>
+        <input type="number" ng-model="race.capacity">
+        <br>
+        <h5>Data</h5>
+        <input type="text" ng-model="race.date">
+        <br>
+        <h5>Dystans</h5>
+        <input type="number" ng-model="race.distance">
+        <br>
+        <h5>Miejsce</h5>
+        <input type="text" ng-model="race.place">
+
+
+        <input type="button" value="Dodaj wyścig" ng-click="createNewRace()">
+        {{message}}
 
     </div>
 </div>

@@ -1,0 +1,102 @@
+<div class="container">
+    <div ng-controller="myTeamController">
+
+        <h4>Zaproszenia skierowane do Ciebie</h4>
+
+        <!--<input type="number" ng-model="userId">-->
+<!--<input type="button" value="Odświerz drużynę" ng-click="getMyTeam() ">-->
+        <input type="button" value="Odświerz zaproszenia" ng-click="getMyInvitations()">
+
+<div class="jumbotron">
+    <h2>Twoja drużyna</h2>
+
+    <table class="table">
+        <tr>
+         <td>Identyfikator drużyny</td>
+         <td>Nazwa drużyny</td>
+         <td>Kapitan</td>
+         <td>Typ zawodów</td>
+        </tr>
+        <tr >
+
+            <td>{{myTeam[0].id}}</td>
+            <td>{{myTeam[0].name}}</td>
+            <td>{{myTeam[0].captainName}}</td>
+            <td>{{myTeam[0].type}}</td>
+
+
+        </tr>
+
+    </table>
+    <input id="lostTeamButton" type="button" class="btn btn-info btn-lg"  value="Wyjdź z drużyny"  data-toggle="modal" data-target="#myModal"   >
+
+</div>
+
+        <!--***************************MODAL potwierdzenia usunięcia*********************************-->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Ostrzeżenie!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Czy na pewno chcesz opuścić swoją drużynę?</h4>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="getOutFromTeam()">Opuść drużynę</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--***************************/MODAL potwierdzenia usunięcia*********************************-->
+
+
+
+        <div class="jumbotron">
+            <h2>Zaproszenia od kapitanów drużyn skierowane do Ciebie:</h2>
+
+            <table class="table">
+                <tr>
+                    <td>Lp.</td>
+                    <td>Identyfikator drużyny</td>
+                    <td>Nazwa drużyny</td>
+                    <td>Kapitan</td>
+                    <td>Email kapitana</td>
+                    <td>Typ zawodów</td>
+                    <td>Zaakceptuj</td>
+
+                </tr>
+                <tr ng-repeat="team in teams">
+
+                    <td>{{$index+1}}</td>
+                    <td>{{team.teamId}}</td>
+                    <td>{{team.teamName}}</td>
+                    <td>{{team.teamCaptainName}}</td>
+                    <td>{{team.email}}</td>
+                    <td>{{team.type}}</td>
+                    <td> <input   type="button" class="btn btn-info btn-lg"  value="Zaakceptuj" ng-click="acceptInvitation(team.teamId)" > </td>
+
+
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+</div>

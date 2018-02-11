@@ -1,0 +1,32 @@
+<div class="container">
+    <div ng-controller="loginController">
+
+
+        <h2>Zaloguj się</h2>
+
+        <!--Id: {{loggedDetails[0].id}}-->
+        <!--<br>-->
+        <!--Mail: {{loggedDetails[0].email}}-->
+        <!--<br>-->
+        <!--Role: {{loggedDetails[0].role}}-->
+
+        <!--&lt;!&ndash;UserId: {{loggedDetails.userId}}&ndash;&gt;-->
+        <!--&lt;!&ndash;UserIdService: {{serviceId}}&ndash;&gt;-->
+        <!--mjaczewskim@gmail.com-->
+
+        <div class="loging">
+            <label>Podaj login </label>
+            <input   class="form-control mr-sm-2" type="text" ng-model="queryEmail"  >
+            <label>Podaj hasło </label>
+            <input class="form-control mr-sm-2" type="password" ng-model="password" >
+            <input type="submit" class="btn btn-info btn-lg" value="Zaloguj" ng-click="doLogin()">
+            <br>
+
+        </div>
+
+{{zal}}
+
+{{loggedDetails}}
+
+    </div>
+</div>

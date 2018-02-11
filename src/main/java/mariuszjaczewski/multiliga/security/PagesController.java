@@ -6,18 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-//@RestController
 @Controller
 
 public class PagesController {
 
 
     @GetMapping("/")
-    public String index( ) {
+    public String index( HttpServletRequest reques) {
 
-        return "index.html";  // return hello jsp
+        return "index.html";
     }
 
 
@@ -26,15 +27,15 @@ public class PagesController {
 //        String main() {
 //            return "";
 //        }
-//
-////        @RequestMapping(value = "/index", method = GET)
-////        String index() {
-////            return "index.html";
-////        }
+
+//        @RequestMapping(value = "/index", method = GET)
+//        String index() {
+//            return "index.html";
+//        }
 //
 //        @RequestMapping(value = "/admin", method = GET)
 //        String admin() {
-//            return "admin";
+//            return "templates/admin.html";
 //        }
 //
 //        @RequestMapping(value = "/logout", method = GET)

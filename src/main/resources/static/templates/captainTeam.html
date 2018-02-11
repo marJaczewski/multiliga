@@ -1,0 +1,166 @@
+<div class="container">
+    <div ng-controller="captainTeamController">
+
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2" ng-click="getAllUsersWithoutTeam()">Powiększ drużynę</button>
+
+
+        UserId:
+        <!--<input type="number" ng-model="userId">-->
+        <input type="button" ng-click="showTeam(userId)" value="Odświerz skład">
+
+       <!--***********************wyswietlenie  kadry***********************-->
+        <div class="jumbotron">
+        <div class="row">
+                            <div class="col-sm-6">
+                                <table class="table">
+                                    <tr>
+                                        <!--<td>Image</td>-->
+
+                                        <td>Identyfikator zawodnika</td>
+                                        <td>Imie i nazwisko</td>
+                                        <td>Usuń zawodnika</td>
+
+                                    </tr>
+                                    <tr ng-repeat="member in teamMembers">
+
+                                        <td>{{member.id}}</td>
+                                        <td>{{member.nazwisko}}</td>
+
+                                        <td>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-click="setIdMemberToDelete(member.id)"  >Usuń zawodnika</button></td>
+
+                                    </tr>
+
+                                </table>
+
+
+                            </div>
+                        </div>
+        </div>
+        <!--***********************/wyswietlenie  kadry***********************-->
+        <input type="button" ng-click="showApplications(userId)" value="Odświerz zgłoszenia">
+        <!--***********************wyswietlenie  zgłoszeń***********************-->
+      <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="table">
+                    <tr>
+                        <!--<td>Image</td>-->
+
+                        <td>Lp.</td>
+                        <td>Identyfikator zgłoszenia</td>
+                        <td>Imie i nazwisko</td>
+                        <td>Data zgłoszenia</td>
+                        <td>Wiek</td>
+                        <td>Email</td>
+                        <td>Zaakceptuj</td>
+
+                    </tr>
+                    <tr ng-repeat="application in teamApplications">
+
+                        <td>{{$index+1}}</td>
+                        <td>{{application.userId}}</td>
+                        <td>{{application.userName}}</td>
+                        <td>{{application.date}}</td>
+                        <td>{{application.wiek}}</td>
+                        <td>{{application.email}}</td>
+                        <td>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-click="acceptApplication(application.userId)"  >Zaakceptuj</button></td>
+
+
+                    </tr>
+
+                </table>
+
+
+            </div>
+        </div>
+      </div>
+
+
+        <!--***********************/wyswietlenie  zgłoszeń***********************-->
+
+        <!--***************************MODAL potwierdzenia usunięcia*********************************-->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Ostrzeżenie!</h4>
+                    </div>
+                    <div class="modal-body">
+                   <h4>Czy na pewno chcesz usunąć zawodnika?</h4>
+                        {{memberToDelete}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="deleteMember(member.id)">Usuń</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--***************************/MODAL potwierdzenia usunięcia*********************************-->
+        <!--***************************MODAL zapraszania zawodników*********************************-->
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Zaproś zawodników</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Wszyscy użytkownicy nieposiadający drużyny.</h4>
+
+                        <table class="table">
+                            <tr>
+                                <!--<td>Image</td>-->
+
+                                <td>Lp.</td>
+                                <td>Identyfikator zawodnika</td>
+                                <td>Nazwisko i imię</td>
+
+                                <td>Email</td>
+                                <td>Zaproś</td>
+
+                            </tr>
+                            <tr ng-repeat="user in allUsersWithoutTeam">
+
+                                <td>{{$index+1}}</td>
+
+                                <td>{{user[0]}}</td>
+
+                                <td>{{user[1]}}</td>
+                                <!--<td>Brak</td>-->
+                                <td>{{user[2]}}</td>
+                                <td>  <input type="button" class="btn btn-info btn-lg" onclick="this.disabled=true;  this.value='Zaproszono'" value="Zaproś"   ng-click="sendInvitation(user[0])"  > </input></td>
+
+
+                            </tr>
+
+                        </table>
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--***************************/MODAL zapraszania zawodników*********************************-->
+
+
+
+
+
+            </div>
+        </div>
+
+

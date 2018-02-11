@@ -3,6 +3,77 @@
     <div ng-controller="newUserController">
         newUserPage
 {{5+3}}
+        <!--<div class="col-md-offset-1 col-md-6 col-sm-12" >-->
+        <!--<div class="login">-->
+        <h2>Rejestracja</h2>
+        <hr>
+        <!--Code of form started-->
+        <form class="form-horizontal" name="frm" novalidate>
+            <!--Code to validate first name is written here-->
+            <!--<div class="form-group" >-->
+                <!--<label id="label" class="control-label">Imię:</label>-->
+                <!--<input type="text" class="form-control" name="username" ng-model="user.imie" placeholder="Imię" autocomplete="off" required />-->
+            <!--</div>-->
+            <div class="form-group" >
+                <label id="label" class="control-label">Nazwisko:</label>
+                <input type="text" class="form-control" name="username" ng-model="user.nazwisko" placeholder="Nazwisko" autocomplete="off" required />
+            </div>
+
+            <!--<div class="form-group" >-->
+                <!--<label id="label" class="control-label">Numer telefonu:</label>-->
+                <!--<input type="tel" class="form-control" name="username" ng-model="user.telefon" placeholder="Numer telefonu" autocomplete="off" required />-->
+            <!--</div>-->
+            <!--Code to validate email address is written here-->
+            <div class="form-group">
+                <label id="label" class="control-label">Email:</label>
+                <input type="email" class="form-control" ng-model="user.email" name="email" placeholder="Podaj emiail" autocomplete="off" required>
+                <span class="msg" ng-show="frm.email.$dirty && frm.email.$invalid">Email Address is not valid</span>
+            </div>
+            <!--Code to validate password is written here-->
+            <div class="form-group">
+                <label id="label" class="control-label">Hasło:</label>
+                <input type="password" class="form-control" ng-model="user.haslo" name="pass" placeholder="Podaj hasło - pomiedzy 5, a 12 znaków" autocomplete="off" ng-minlength="5" ng-maxlength="12" required>
+                <span class="msg" ng-show="frm.pass.$dirty && frm.pass.$error.minlength">Hasło musi zawierać przynajmniej 5 znaków.</span>
+                <span class="msg" ng-show="frm.pass.$dirty && frm.pass.$error.maxlength">Hasło nie może mieć wiecej niż 12 znaków.</span>
+            </div>
+            <!--Code to validate message input box-->
+            <!--<div class="form-group">-->
+                <!--<label id="label" class="control-label">Adres</label>-->
+                <!--<textarea type="textarea" rows="2" cols="50" name="message" class="form-control" ng-model="user.address" placeholder="Podaj adres" autocomplete="off" required></textarea><br>-->
+                <!--<span class="msg" ng-show="frm.message.$error.required">Wprowadź wiadomość.</span>-->
+            <!--</div>-->
+
+
+            <!--Code to disable submit button is written here-->
+            <div class="form-group">
+                <input ng-disabled="frm.$invalid"  class="btn btn-info btn-lg" type="submit" ng-click="call()" value="Zatwierdź">
+            </div>
+        </form>
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-offset-1 col-md-4 col-sm-12">-->
+        <!--<div class="alert1" ng-show="submit_success" style="word-wrap:break-word;">-->
+        <!--<div class="login" >-->
+        <!--<h2>submitted values</h2>-->
+        <!--<hr>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-5 headname">-->
+        <!--<b>FirstName:</b> </div> <div class="col-md-7">   {{server.firstname}}</div>	</div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Nazwisko: </b> </div> <div class="col-md-7">    {{server.lastname}}<br></div></div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Email: </b> </div> <div class="col-md-7">    {{server.email}}<br></div></div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Hasło:</b></div><div class="col-md-7"> {{server.pass}}<br></div></div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Adres: </b></div><div class="col-md-7">       {{server.address}}<br></div></div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Telefon: </b></div><div class="col-md-7">       {{server.telefon}}<br></div></div>-->
+        <!--<div class="row"><div class="col-md-5 headname"><b>Hasło: </b></div><div class="col-md-7">       {{server.haslo}}<br></div></div>-->
+
+        <!--<b>JSON Data: </b>      {{server}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+
+
 
     </div>
 </div>

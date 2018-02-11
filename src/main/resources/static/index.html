@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Multiliga</title>
+
 </head>
-<body>
+<body ng-controller="loginController">
+<!--<nav class="navbar navbar-inverse navbar-fixed-top">-->
+    <!--<div class="container">-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">-->
+                <!--<span class="sr-only">Menu</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" href="#home">Multiliga</a>-->
+        <!--</div>-->
+        <!--<div id="allTypes">-->
+            <!--<div id="navbar" class="collapse navbar-collapse">-->
+                <!--<ul class="nav navbar-nav">-->
+                    <!--<li><a href="#newUser">Dodaj użytkownika</a></li>-->
+                    <!--<li><a href="#home">Home</a></li>-->
+                    <!--<li><a href="#admin">Admin</a></li>-->
+                    <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Drużyny <span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu">-->
+                            <!--<li><a href="#myTeam">Moja druzyna</a></li>-->
+                            <!--<li><a href="#applyToTeam">Zgłoś się do drużyny</a></li>-->
+                            <!--<li><a href="#newTeam">Załóż drużynę</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li><a href="#captainTeam">DrużynaKapitana</a></li>-->
+                    <!--<li>-->
+                        <!--<p class="navbar-btn">-->
+                            <!--<a href="#login" class="btn btn-default" >Zaloguj</a>-->
+                        <!--</p>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
+
+<div id="annonymusNav">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -21,14 +60,90 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#newUser">Dodaj użytkownika</a></li>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#admin">Admin</a></li>
 
 
+
+                    <li>
+                        <p class="navbar-btn">
+                            <a href="#login" class="btn btn-default" >Zaloguj</a>
+                        </p>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+</div>
+
+<div id="userNav">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">Multiliga</a>
+            </div>
+            <div id="allTypes">
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#race">Wyścigi</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  >Drużyny <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#myTeam">Moja druzyna</a></li>
+                                <li><a href="#applyToTeam">Zgłoś się do drużyny</a></li>
+                                <li><a href="#newTeam">Załóż drużynę</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="navbar-btn">
+                                <a href="#home" class="btn btn-default" ng-click="unLogging()">Wyloguj</a>
+                            </p>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div id="captainNav">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">Multiliga</a>
+            </div>
+            <div id="allTypes">
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#race">Wyścigi</a></li>
+
+                        <li><a href="#captainTeam">DrużynaKapitana</a></li>
+                        <li>
+                            <p class="navbar-btn">
+                                <a href="#home" class="btn btn-default" ng-click="unLogging()">Wyloguj</a>
+                            </p>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
 
 
 <div id="main">
@@ -39,16 +154,32 @@
 
 
 </body>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
 <link rel="stylesheet" href="style.css">
 
-<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+
+<!--DROPDOWN-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 
 <script src="Controllers/app.js"></script>
 <script src="Controllers/homeController.js"></script>
 <script src="Controllers/newUserController.js"></script>
 <script src="Controllers/adminController.js"></script>
+<script src="Controllers/loginController.js"></script>
+<script src="Controllers/newTeamController.js"></script>
+<script src="Controllers/myTeamController.js"></script>
+<script src="Controllers/applyToTeamController.js"></script>
+<script src="Controllers/captainTeamController.js"></script>
+<script src="Controllers/raceController.js"></script>
 </html>

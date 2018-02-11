@@ -1,0 +1,43 @@
+<div class="container">
+    <div ng-controller="raceController">
+
+        <div class="jumbotron">
+            <h2>Lista organizowanych wyścigów, na które nie jesteś zapisany:</h2>
+
+            <table class="table">
+                <tr>
+                    <td>Lp.</td>
+                    <td>Identyfikator wyścigu</td>
+                    <td>Typ wyscigu</td>
+                    <td>Dystans</td>
+                    <td>Data</td>
+                    <td>Miejsce</td>
+                    <td>Zapisz się</td>
+
+                </tr>
+                <tr ng-repeat="race in races">
+
+                    <td>{{$index+1}}</td>
+                    <td>{{race.id}}</td>
+                    <td>{{race.type}}</td>
+                    <td>{{race.distance}}</td>
+                    <td>{{race.date}}</td>
+                    <td>{{race.place}}</td>
+
+                    <td> <input   type="button" class="btn btn-info btn-lg"  value="Zapisz się" ng-click="signIntoRace(race.id)" > </td>
+
+
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
